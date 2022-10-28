@@ -1,0 +1,42 @@
+<div class="row host">
+    <div class="add-btn mb-4">
+      <a routerLink="/home/addvoiture" class="btn"
+        style="background-color: #005a81; color: #FFFFFF ;font-weight: bold;">Ajouter nouveau Voiture</a>
+    </div>
+     <div *ngIf="numberOfvoitures == 0 ; else show">
+      <h2 class="text-center">Aucune donnée disponible</h2>
+    </div> 
+    <ng-template #show>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Date Création</th>
+            <th scope="col">Modele</th> 
+            <th scope="col">Image</th> 
+            <th scope="col">Action</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let voiture of voitures ;let i= index">
+            <td>{{ voiture.idVoiture }}</td>
+            <td>{{ voiture.nomVoiture }}</td>
+            <td>{{ voiture.prixVoiture }}</td>
+            <td>{{ voiture.dateCreation | date: "dd/MM/yyyy" }}</td>
+             <td>{{voiture?.modele?.nomMod}}</td> 
+             <td data-label="image"><img [src]="listImages[i]" alt="img" style="width: 70px; height:70px"></td>
+            <td data-label="Action">
+              <div>
+                <button class="btn btn-sm me-2" [routerLink]="['/home/updatevoiture',voiture.idVoiture]"
+                  style="background-color: #005a81; color: #FFF;"><i class="fas fa-pen"></i></button>
+                 <button class="btn btn-sm me-2" (click)="supprimerVoiture(voiture)" style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-times fa-lg"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </ng-template>
+  </div>

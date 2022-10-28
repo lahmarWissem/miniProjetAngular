@@ -1,0 +1,60 @@
+<div style="background-color: #EFEFEF" class="host">
+    <div class="container-fluid mt-3">
+
+        <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="far fa-check-circle me-3"></i> <small>Votre compte est bien crée</small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> -->
+
+        <div class="row justify-content-center mb-5">
+            <form class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-3"></i> <small>Confirmation de mot de passe incorrect</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div> -->
+
+                <div hidden class="form-group mb-3">
+                    <label class="mb-2">Id Voiture :</label>
+                    <input type="text" [(ngModel)]="newVoiture.idVoiture" name="idVoiture" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Nom Voiture :</label>
+                    <input type="text" [(ngModel)]="newVoiture.nomVoiture" name="nomVoiture" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Prix Voiture :</label>
+                    <input type="number" [(ngModel)]="newVoiture.prixVoiture" name="prixVoiture" class="form-control">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="mb-2">Image :</label>
+                    <input type="file" (change)="onImageUpload($event)" name="logo" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Modele :</label>
+                    
+                    <select class="form-control form-control-lg" id="idMod" name="idMod" [(ngModel)]="newIdMod">
+                        <option *ngFor="let mod of modeles" [value]="mod.idMod">
+                            {{mod.nomMod}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Date création :</label>
+                    <input type="date" [(ngModel)]="newVoiture.dateCreation" name="dateCreation" class="form-control">
+                </div> 
+
+
+
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="submit" (click)="addVoiture()" class="btn"
+                        style="background-color:#005a81; color: #fff">Ajouter</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <a routerLink="/home/listVoiture" class="btn"><i class="fas fa-arrow-left me-2"></i> retour a la liste</a>
+        </div>
+    </div>
+</div>
