@@ -1,0 +1,59 @@
+<div class="row host">
+
+    <div class="row">
+      
+  
+      <div *ngIf="authService.isAdmin()" class="col-md-6 mb-4 ">
+        <a routerLink="/home/addUser" class="btn"
+          style="background-color: #005a81; color: #FFFFFF ;font-weight: bold;">Ajouter nouveau User</a>
+      </div>
+
+  
+  
+      
+    </div>
+  
+    <div *ngIf="numberOfusers == 0 ; else show">
+      <h2 class="text-center">Aucune donnée disponible</h2>
+    </div>
+  
+  
+    <ng-template #show>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Status</th>
+            <th scope="col">Role</th>
+            <th scope="col" *ngIf="authService.isAdmin()" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users ;let i= index">
+            <td>{{ user.user_id}}</td>
+            <td>{{ user.username }}</td>
+            <td  *ngIf="user.enabled==true ">enabled</td>
+            <td  *ngIf="user.enabled==false ">Disabled</td>
+            
+             <td>
+                <ul *ngFor="let role of  user.roles;">
+                    <li>{{ role.role }}</li>
+                </ul>
+            </td>  
+             
+            
+             <td *ngIf="authService.isAdmin()" data-label="Action">
+              <div  >
+                <button  class="btn btn-sm me-2" 
+                  style="background-color: #005a81; color: #FFF;"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-sm me-2" 
+                  style="background-color: #FF3B3F; color: #FFF;" (click)="deleteUser(user.user_id)"><i class="fas fa-times fa-lg"></i></button>
+              </div>
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+  
+    </ng-template>
+</div>

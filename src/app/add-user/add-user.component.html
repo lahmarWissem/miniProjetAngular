@@ -1,0 +1,56 @@
+<div style="background-color: #EFEFEF" class="host">
+    <div class="container-fluid mt-3">
+
+        <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="far fa-check-circle me-3"></i> <small>Votre compte est bien crée</small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> -->
+
+        <div class="row justify-content-center mb-5">
+            <form class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-3"></i> <small>Confirmation de mot de passe incorrect</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div> -->
+
+                <div hidden class="form-group mb-3">
+                    <label class="mb-2">Id Voiture :</label>
+                    <input type="text" [(ngModel)]="newUser.user_id" name="user_id" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Nom User :</label>
+                    <input type="text" [(ngModel)]="newUser.username" name="username" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Mot de Passe :</label>
+                    <input type="password" [(ngModel)]="newUser.password" name="password" class="form-control">
+                </div>
+
+                <div class="form-group mb-3"> 
+                    <label class="control-label">Etat :</label>
+                     <select name="enabled" class="form-control" required>
+                     <option th:each="u : ${users}" th:value="1">Enabled</option>
+                      <option th:each="u : ${users}" th:value="0">Disabled</option>
+                     </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputCat" class="form-label">Role</label>
+                        <select class="form-select" aria-label="Default select example" name="role" [(ngModel)]="role"
+                          id="exampleInputCat">
+                          <option value="null" selected disabled>Select user role</option>
+                          <option value="ADMIN">Admin</option>
+                          <option value="USER">User</option>
+                        </select>
+                      </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="submit" (click)="addNewUser()" class="btn"
+                        style="background-color:#005a81; color: #fff">Ajouter</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <a routerLink="/home/listVoiture" class="btn"><i class="fas fa-arrow-left me-2"></i> retour a la liste</a>
+        </div>
+    </div>
+</div>

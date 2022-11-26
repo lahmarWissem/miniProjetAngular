@@ -1,4 +1,4 @@
-<header class="">
+<header >
     <h4>
         <label for="nav-toggle">
             <span class="fas fa-bars"></span>
@@ -7,12 +7,16 @@
         Dashboard
     </h4>
 
-    <div class="user-wrapper">
+    <div class="user-wrapper" >
        
+        <img src="../../assets/undraw_profile_pic_ic-5-t.svg" width="50px" height="50px" alt="admin">
 
         <div>
            
-            <small>anonyme <i class="fas fa-circle fa-xs text-success"></i></small>
+            <div style="display: flex;">
+                <b><h6>{{authService.loggedUser}}</h6></b>
+               
+            </div>
         </div>
     </div>
 </header>

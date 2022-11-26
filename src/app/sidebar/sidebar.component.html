@@ -1,7 +1,5 @@
 <div class="sidebar-brand">
-    <div class="sidebar-brand-logo">
-        <span><img src="../../assets/logo.png" alt="logo"></span>
-    </div>
+  
     <div class="sidebar-brand-name">
         <h5>Mini Projet</h5>
         <small>Gestion des Voitures</small>
@@ -28,9 +26,22 @@
         </li>
 
         <li>
-            <a routerLink="Modele" routerLinkActive="active">
-                <span class="fas fa-user" data-bs-toggle="tooltip" data-bs-placement="right" title="Condidat"></span>
+            <a   routerLink="listmodeles" routerLinkActive="active">
+                <span class="fas fa-cubes" data-bs-toggle="tooltip" data-bs-placement="right" title="Condidat"></span>
                 <span> Modele</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="listeusers" routerLinkActive="active">
+                <span class="fas fa-users" data-bs-toggle="tooltip" data-bs-placement="right" title="Condidat"></span>
+                <span>Users</span>
+            </a>
+        </li>
+        
+        <li>
+            <a routerLink="recherche" routerLinkActive="active">
+                <span class="fas fa-search" data-bs-toggle="tooltip" data-bs-placement="right" title="Condidat"></span>
+                <span>Recherche</span>
             </a>
         </li>
     </ul>
@@ -38,7 +49,7 @@
 </div>
 
 <div class="sidebar-footer">
-    <button class="logout-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout"> 
+    <button class="logout-btn" data-bs-toggle="tooltip" data-bs-placement="right"  (click) = "onLogout()" title="Logout"> 
         <i class="fas fa-sign-out-alt"></i> <div class="ms-1">Déconnexion</div>
     </button>
     
