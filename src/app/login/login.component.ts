@@ -12,18 +12,12 @@ export class LoginComponent implements OnInit {
   user = new User();
   err: number = 0;
 
-  constructor(private authService: AuthService, private router: Router) {}
-  
-  ngOnInit(): void {}
-  /*   onLoggedin()
-  {
-  this.authService.login(this.user).subscribe((data)=> {
-  let jwToken = data.headers.get('Authorization')!;
-  this.authService.saveToken(jwToken);
-  this.router.navigate(['/']);
-  },(erreur)=>{ this.err = 1;
-  }); */
 
+  constructor(private authService: AuthService, private router: Router) {}
+  ngOnInit(): void {
+    }
+
+  
   onLoggedin() {
     this.authService.login(this.user).subscribe({
       next: (data) => {

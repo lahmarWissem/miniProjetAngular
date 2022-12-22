@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { AddVoituresComponent } from './add-voitures/add-voitures.component';
 import { ListVoituresComponent } from './list-voitures/list-voitures.component';
@@ -20,6 +20,10 @@ import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './services/token.interceptor';
 import { ListeUsersComponent } from './liste-users/liste-users.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+
+
 
 
 @NgModule({
@@ -38,7 +42,10 @@ import { AddUserComponent } from './add-user/add-user.component';
     SearchFilterPipe,
     LoginComponent,
     ListeUsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    ForbiddenComponent,
+    UpdateUserComponent,
+
   
   ],
   imports: [
@@ -47,6 +54,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptor,

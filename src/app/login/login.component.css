@@ -1,0 +1,14 @@
+.bg{
+    background-image: url("../../assets/bg2.svg");
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+
+}
+
+form {
+    
+    background: linear-gradient(to bottom right, #CAEBF2 , #EFEFEF);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px;
+}

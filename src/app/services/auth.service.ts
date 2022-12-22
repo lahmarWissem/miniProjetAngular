@@ -25,6 +25,7 @@ export class AuthService {
     { username: 'wissem', password: '123', roles: ['USER'] },
   ];*/
 
+ 
 
 
   constructor(private router: Router, private http: HttpClient) { }
@@ -83,7 +84,6 @@ export class AuthService {
   }
 
 
-
   getToken(): string {
     return this.token;
   }
@@ -119,7 +119,32 @@ export class AuthService {
     return validUser;
   } */
 
+  /*image functions*/
 
+  uploadImage(file: File, filename: string) {
+    const imageFormData = new FormData();
+    imageFormData.append('image', file, filename);
+    const url = `${this.apiURL + '/image/upload'}`;
+    return this.http.post(url, imageFormData);
+  }
+
+  updateImage(file: File, filename: string) {
+    const imageFormData = new FormData();
+    imageFormData.append('image', file, filename);
+    const url = `${this.apiURL + '/image/update'}`;
+    return this.http.put(url, imageFormData);
+  }
+
+  loadImage(id: number) {
+    const url = `${this.apiURL + '/image/get/info'}/${id}`;
+    return this.http.get(url);
+  }
+
+  deleteImage(idImage: number) {
+    const url = `${this.apiURL + '/image/delete'}/${idImage}`;
+    return this.http.delete(url);
+  }
+  /******************* */
   
 
   isAdmin(): Boolean {
@@ -160,7 +185,7 @@ export class AuthService {
   }
 
   deleteUser(id: number) {
-    const url = `${this.apiURL}/${id}`
+    const url = `${this.apiURL+"/all"}/${id}`
     let jwt = this.getToken();
     jwt = "Bearer " + jwt;
     let httpHeaders = new HttpHeaders({ "Authorization": jwt })
@@ -168,17 +193,12 @@ export class AuthService {
   }
 
   getUserById (id: number) : Observable<User> {
-    const url = `${this.apiURL + "/user/get"}/${id}`
-    let jwt = this.getToken();
-    jwt = "Bearer " + jwt;
-    let httpHeaders = new HttpHeaders({ "Authorization": jwt })
-    return this.http.get<User>(url, { headers: httpHeaders })
+    const url = `${this.apiURL + "/get"}/${id}`
+    return this.http.get<User>(url)
   }
 
   updateUser (user: User) : Observable<User> {
-    let jwt = this.getToken();
-    jwt = "Bearer " + jwt;
-    let httpHeaders = new HttpHeaders({ "Authorization": jwt })
-    return this.http.put<User>(this.apiURL + "/user", user, { headers: httpHeaders });
+
+    return this.http.put<User>(this.apiURL + "/update", user);
   }
 }

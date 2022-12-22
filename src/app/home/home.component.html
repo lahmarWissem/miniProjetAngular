@@ -1,4 +1,5 @@
-<input type="checkbox" id="nav-toggle">
+<div >
+  <input type="checkbox" id="nav-toggle" >
 <div class="sidebar">
   <!--Sidebar component-->
   <app-sidebar></app-sidebar>
@@ -7,8 +8,9 @@
 <div class="main-content">
   <!--Header component-->
   <app-header></app-header>
-  <main>
+  <main class="bg" >
     <!-- Router outlet -->
     <router-outlet></router-outlet>
   </main>
+</div>
 </div>

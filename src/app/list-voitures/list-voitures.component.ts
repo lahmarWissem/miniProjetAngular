@@ -38,6 +38,7 @@ export class ListVoituresComponent implements OnInit {
       console.log(voits);
       this.voitures = voits;
       this.numberOfvoitures = voits.length
+      
       for (let index = 0; index < this.voitures.length; index++) {
         this.voitureService
           .loadImage(this.voitures[index].image.idImage)

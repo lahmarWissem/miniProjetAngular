@@ -1,3 +1,4 @@
+import { ImageUser } from './../models/imageUser.model';
 import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,6 +17,9 @@ export class AddUserComponent implements OnInit {
   newRole = new  Role;
   users!:User[];
   role!: string
+  uploadedImage!: File;
+  image: any;
+  response: any;
 
   constructor(private authService :AuthService,private router :Router) { }
 
@@ -30,17 +34,35 @@ export class AddUserComponent implements OnInit {
 
 
   addNewUser() {
+    this.authService
+    .uploadImage(this.uploadedImage, this.uploadedImage.name)
+    .subscribe((response: any) => {
+      this.authService
+        .loadImage(response.idImage)
+        .subscribe((image: any) => {
+          let img = new ImageUser();
+          img.idImage = image.idImage;
+          img.name = image.name;
+          img.type = image.type;
+          img.image = image.image;
+          this.newUser.image = new ImageUser();
+          this.newUser.image = img;
     this.newRole.role = this.role
     this.newUser.roles = []
     this.newUser.roles.push(this.newRole)
 
     this.authService.addUser(this.newUser).subscribe(user => {
-      //console.log(user)
-      this.router.navigate(['/listeusers']).then(() => {
-        window.location.reload()
-      })
+      console.log(user)
+   
     })
+  });
+});
+this.router.navigate(['/home/listeusers']).then(() => {
+  window.location.reload()
+})
   }
-
+  onImageUpload(event: any) {
+    this.uploadedImage = event.target.files[0];
+  }
 
 }

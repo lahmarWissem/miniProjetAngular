@@ -18,8 +18,9 @@ export class ListModelesComponent implements OnInit {
   ngOnInit(): void {
 this.chargerModeles();
 }
+
 modeleUpdated(mod:Modele){
-  console.log("Categorie Rece Du composant Update Modele",mod)
+  console.log("modele Rece Du composant Update Modele",mod)
   this.voitureService.ajouterModele(mod).subscribe( ()=> this.chargerModeles());
 
 }
@@ -30,6 +31,15 @@ chargerModeles(){
 });
   }
   
+
+  supprimerModele(mod:Modele){
+    let conf = confirm('Etes-vous sûr ?');
+    if (conf)
+      this.voitureService.supprimerModele(mod.idMod).subscribe(() => {
+        console.log('Modele supprimé');
+        this.chargerModeles();
+      });
+  }
   updateMod(mod:Modele) {
     this.updatedMod=mod;
     this.ajout=false;

@@ -1,0 +1,7 @@
+.bg{
+    background-image: url("../assets/bg2.svg");
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+
+}

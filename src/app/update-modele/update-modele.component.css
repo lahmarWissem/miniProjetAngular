@@ -98,3 +98,8 @@ table th {
         opacity: 1;
     }
 }
+
+.bg{
+  background: linear-gradient(to bottom right, #CAEBF2 , #EFEFEF);
+
+}

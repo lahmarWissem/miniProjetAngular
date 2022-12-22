@@ -4,6 +4,10 @@ form {
     padding: 15px;
 }
 
+.bg{
+    background: linear-gradient(to bottom right, #CAEBF2 , #EFEFEF);
+  
+  }
 .host {
     animation: show 0.5s ease-in-out;
 }

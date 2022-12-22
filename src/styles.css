@@ -46,12 +46,14 @@
 } 
 
 .sidebar-brand .sidebar-brand-name{
+    font-weight: bold;
     font-size: 28px ;
     transition: 200ms ease-out;
-    color: #005a81 ;
+    color: #003348 ;
 } 
 
 .sidebar-brand .sidebar-brand-name h5 {
+    font-weight: bold;
     margin-top: 5px;
     margin-bottom: -15px;
     letter-spacing: 2px;
@@ -120,8 +122,9 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 50px;
-    /* transition: 500ms ease-out; */
+    margin-top: 400px;
+    padding-bottom: 550%;
+    /* transition: 500ms ease-out; hne barbesht */
 }
 
 .sidebar-footer .logout-btn{
@@ -129,6 +132,7 @@
     justify-content: space-between;
     align-items: center;
     width: auto;
+   
     height: 36px;
     padding: 5px;
     border: 1px solid #005a81;

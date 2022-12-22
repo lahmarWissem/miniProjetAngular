@@ -98,3 +98,88 @@ table th {
         opacity: 1;
     }
 }
+
+
+.thumb-caption{
+  background: linear-gradient(to right,rgba(0,0,0,.77) 0%,rgba(0,0,0,.5) 30%,rgba(125,185,232,0) 54%);
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+
+
+
+.occasion-item .thumb-caption {
+    vertical-align: top;
+    padding-top: 20px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+    min-height: 40px;
+    display: table;
+    width: 100%;
+}
+
+.bb{
+  position: relative;
+  text-align: left;
+  color: white;
+
+  
+}
+.bot{
+  position: absolute;
+
+
+  background: linear-gradient(to right,rgba(0,0,0,.77) 0%,rgba(0,0,0,.5) 30%,rgba(125,185,232,0) 80%);
+  padding: 0;
+  bottom: 8px;
+  bottom: 0;
+      vertical-align: top;
+      z-index: 5;
+    min-height: 40px;
+    display: table;
+    width: 100%;
+
+
+
+}
+
+.bot h5{
+  margin-left: 10px;
+  text-transform: uppercase;
+  line-height: 17px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  vertical-align: middle;
+  display: table-cell;
+  
+}
+
+.price{ 
+  background: #005a81;
+  color: #fff;
+  padding: 10px 6px 10px 4px;
+  font-weight: 600;
+  font-size: 20px;
+  z-index: 5;
+  float: right;
+  white-space: nowrap;
+
+}
+
+.bot h5 span{
+  
+text-shadow: 0 1px #000;
+margin-left: 15px;
+color: #fff;
+font-size: 20px;
+padding-right: 2px;
+}
+
+.btnn{
+  float: right;
+  justify-content: space-between;
+  
+
+}

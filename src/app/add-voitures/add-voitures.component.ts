@@ -54,6 +54,8 @@ addVoiture() {
             });
         });
     });
+
+    
 }
 
 onImageUpload(event: any) {

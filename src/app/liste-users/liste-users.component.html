@@ -22,19 +22,26 @@
       <table>
         <thead>
           <tr>
+           
             <th scope="col">Id</th>
+            <th scope="col">Image</th>
             <th scope="col">Nom</th>
-            <th scope="col">Status</th>
+            <!-- <th scope="col">Status</th> -->
             <th scope="col">Role</th>
             <th scope="col" *ngIf="authService.isAdmin()" >Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of users ;let i= index">
+           
+           
             <td>{{ user.user_id}}</td>
+     
+              <td class="rounded" data-label="image"><img class="rounded-circle shadow-4-strong" [src]="listImages[i]" alt="img" style="width: 80px; height:80px"></td>
+        
             <td>{{ user.username }}</td>
-            <td  *ngIf="user.enabled==true ">enabled</td>
-            <td  *ngIf="user.enabled==false ">Disabled</td>
+          <!--   <td  *ngIf="user.enabled==true ">enabled</td>
+            <td  *ngIf="user.enabled==false ">Disabled</td> -->
             
              <td>
                 <ul *ngFor="let role of  user.roles;">
@@ -46,7 +53,7 @@
              <td *ngIf="authService.isAdmin()" data-label="Action">
               <div  >
                 <button  class="btn btn-sm me-2" 
-                  style="background-color: #005a81; color: #FFF;"><i class="fas fa-pen"></i></button>
+                  style="background-color: #005a81; color: #FFF;" [routerLink]="['/home/updateUser',user.user_id]"><i class="fas fa-pen"></i></button>
                 <button class="btn btn-sm me-2" 
                   style="background-color: #FF3B3F; color: #FFF;" (click)="deleteUser(user.user_id)"><i class="fas fa-times fa-lg"></i></button>
               </div>
