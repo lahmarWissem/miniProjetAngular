@@ -22,6 +22,7 @@ import { ListeUsersComponent } from './liste-users/liste-users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { PasswordComponent } from './password/password.component';
 
 
 
@@ -45,6 +46,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     AddUserComponent,
     ForbiddenComponent,
     UpdateUserComponent,
+    PasswordComponent,
 
   
   ],

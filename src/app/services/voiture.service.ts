@@ -94,6 +94,12 @@ export class VoitureService {
     return this.http.put(url, imageFormData);
   }
 
+  
+  loadImageVoiture(id:number) {
+    const url = `${this.apiURL + '/image/loadimagevoit'}/${id}`;
+    return this.http.get(url);
+  }
+
   loadImage(id: number) {
     const url = `${this.apiURL + '/image/get/info'}/${id}`;
     return this.http.get(url);

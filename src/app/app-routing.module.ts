@@ -14,6 +14,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { VoitureGuard } from './voiture.guard';
 import { LoginComponent } from './login/login.component';
+import { PasswordComponent } from './password/password.component';
 
 const routes: Routes = [
  {path: "", redirectTo: "home", pathMatch: "full" },
@@ -34,7 +35,8 @@ const routes: Routes = [
     { path: 'updateUser/:id', component: UpdateUserComponent  },
     {path: 'app-forbidden', component: ForbiddenComponent},
     {path: 'formvalidation', component: ForbiddenComponent},
-    { path: 'addUser', component: AddUserComponent  }
+    { path: 'addUser', component: AddUserComponent  },
+    { path: 'xx', component: PasswordComponent  }
   ]
   },
 ];

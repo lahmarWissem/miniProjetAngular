@@ -1,11 +1,12 @@
-<div class="p-5 bg" style="background-color: #EFEFEF; height: 100vh">
+<div class="p-5 bg login-form" style="background-color: #EFEFEF; height: 100vh">
     <div class="d-flex justify-content-center mb-2" style="height: 180px">
         <img src="../../assets/undraw_welcome_cats_thqn.svg" alt="" width="100%">
     </div>
 
     <div class="container-fluid">
         <div class="d-flex justify-content-center py-5">
-            <form class="col-lg-4 col-md-6 col-xs-12">
+            <form   class="col-lg-4 col-md-6 col-xs-12">
+                
                 <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="err == 1">
                     <i class="fas fa-exclamation-triangle me-3"></i> <small>Identifiant ou mot de passe incorrect</small>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -16,13 +17,53 @@
                 <hr>
                 <div class="form-group mb-3">
                     <label class="mb-2">Identifiant :</label>
-                    <input type="text" [(ngModel)]="user.username"  name="username"  class="form-control">
-                    
+                    <input type="text" [(ngModel)]="user.username" 
+                     name="username"  class="form-control">
                 </div>
-                <div class="form-group mb-3">
+
+         
+                <div [formGroup]="form" class="form-group mb-3">
                     <label class="mb-2">Mot de passe :</label>
-                    <input type="password" [(ngModel)]="user.password"  name="password" class="form-control">
+                
+                    <input type="password"    
+                    formControlName="password"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                    [(ngModel)]="user.password"  
+                    name="password" 
+                    class="form-control">
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        <div *ngIf="f['password'].errors['minlength']">
+                          Password must be at least 6 characters
+                        </div>
+                        <div *ngIf="f['password'].errors['maxlength']">
+                          Username must not exceed 40 characters
+                        </div>
+                      </div>  
                 </div>
+
+                <div [formGroup]="form" class="form-group mb-3">
+                    <label>Confirm Password</label>
+                    <input
+                      type="password"
+                      formControlName="confirmPassword"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+                    />
+                    <div
+                      *ngIf="submitted && f['confirmPassword'].errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['confirmPassword'].errors['required']">
+                        Confirm Password is required
+                      </div>
+                      <div *ngIf="f['confirmPassword'].errors['matching']">
+                        Confirm Password does not match
+                      </div>
+                    </div>
+                  </div>
+
                 <div class="d-flex justify-content-center mb-3">
                     <button type="button"class="btn" (click)="onLoggedin()" style="background-color:#0c89a5; color: #fff">Connexion</button>
                 </div>

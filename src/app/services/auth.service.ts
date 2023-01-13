@@ -1,9 +1,9 @@
+import { User } from './../models/user.model';
 import { Role } from '../models/role.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { RoleWrapper } from '../models/roleWrapper.model';
 
@@ -81,6 +81,7 @@ export class AuthService {
     const decodedToken = this.helper.decodeToken(this.token);
     this.roles = decodedToken.roles;
     this.loggedUser = decodedToken.sub;
+    
   }
 
 
@@ -137,6 +138,11 @@ export class AuthService {
 
   loadImage(id: number) {
     const url = `${this.apiURL + '/image/get/info'}/${id}`;
+    return this.http.get(url);
+  }
+
+  loadImageUser(name?: string) {
+    const url = `${this.apiURL + '/image/loadImageUser'}/${name}`;
     return this.http.get(url);
   }
 

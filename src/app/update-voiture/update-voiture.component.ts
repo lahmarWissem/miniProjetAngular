@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Voiture } from './../models/voiture.model';
 import { Modele } from './../models/modele.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,10 +14,13 @@ export class UpdateVoitureComponent implements OnInit {
   modeles! : Modele[];
   updatedModId! : number;
   currentVoiture = new Voiture();
-  
+  x? : string;
+  image: any;
+  ImageVoiture: any;
+  response: any;
     constructor(private activatedRoute: ActivatedRoute,
       private router :Router,
-    private voitureService: VoitureService) { }
+    private voitureService: VoitureService,private authService:AuthService ) { }
   
     ngOnInit(): void {
       this.voitureService.listeModeles().
@@ -27,6 +31,7 @@ export class UpdateVoitureComponent implements OnInit {
       subscribe( voit =>{ this.currentVoiture = voit;
       this.updatedModId = this.currentVoiture.modele.idMod;
       } ) ;
+ 
       }
   
       updateVoiture() {

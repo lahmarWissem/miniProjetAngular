@@ -2,6 +2,7 @@ import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Role } from '../models/role.model';
 import { User } from '../models/user.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,41 +13,35 @@ export class HeaderComponent implements OnInit {
   roles? :Role[];
   users!: User[];
   image: any;
-  listImages: String[] = [];
+  ImageUser: any;
   roless? = new Role();
   numberOfusers : number = 0 ;
   newUser =new User()
   IdRole! : number;
-  constructor(public authService:AuthService,) { }
+  x? : string;
+  constructor(public authService:AuthService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.chargerusers()
+  this.chargerusers()
     
   }
+
   chargerusers() {
-    this.authService.listeUsers().subscribe((voits) => {
-     
-      this.users = voits;
-   
-      this.numberOfusers = voits.length 
-/* 
-      this.newUser.roles = this.roles?.find(
-        (rol) => rol.role_id == this.IdRole
-      )!; */
-      for (let index = 0; index < this.users.length; index++) {
-        this.authService
-          .loadImage(this.users[index].image.idImage)
-          .subscribe((res: any) => {
-            console.log(res.idImage)
-            this.listImages[index] =
-              'data:' + res.type + ';base64,' + res.image;
-            
-             
-          });
-      }
-  
-  });
+    console.log()
+   this.x=this.authService.loggedUser;
+  this.authService.loadImageUser(this.x).subscribe((res: any) => {
+      
+        this.ImageUser ='data:' + res.type + ';base64,' + res.image;
+        
+        
+        
+
+        
+         
+      });
+  }
+
  
   
   }
-}
+
