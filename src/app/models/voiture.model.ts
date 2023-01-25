@@ -7,4 +7,6 @@ export class Voiture {
     dateCreation! : Date ;
     modele! : Modele;
     image !: Image;
+    position! :number;
+    type!:string;
     }

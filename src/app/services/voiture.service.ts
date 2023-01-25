@@ -19,6 +19,11 @@ export class VoitureService {
 
   listeVoiture(): Observable<Voiture[]> {
     return this.http.get<Voiture[]>(this.apiURL + '/all');
+  } 
+
+
+  public listeVoiturepaginated(page?: number, size?: number, order?: string, asc?: boolean): Observable<any> {
+    return this.http.get<any>(this.apiURL +"?"+`page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 
   ajouterModele(mod: Modele): Observable<Modele> {
@@ -47,6 +52,10 @@ export class VoitureService {
     return this.http.get<Voiture[]>(url);
   }
 
+    findbyType(type: string): Observable<Voiture[]> {
+    const url = `${this.apiURL}/byType/${type}`;
+    return this.http.get<Voiture[]>(url);
+  }
   rechercherParNom(nom: string): Observable<Voiture[]> {
     const url = `${this.apiURL}/voitsByName/${nom}`;
     return this.http.get<Voiture[]>(url);

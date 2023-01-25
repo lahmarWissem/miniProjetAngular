@@ -32,6 +32,7 @@ Cars Management application using Spring Boot Angular 14.2.6. and MySql Data bas
 5. Viewing users page and able to edit info, upload images and delete users
 6. Viewing cars page and able to edit cars, upload images and delete cars
 6. Viewing models page and able to edit models, add and delete model
+7.drag and drop 
 
 # lien for backend Spring micro service and Spring Voiture
 1. https://github.com/lahmarWissem/Spring_microServices.git

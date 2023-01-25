@@ -1,3 +1,4 @@
+import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,8 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { VoitureGuard } from './voiture.guard';
 import { LoginComponent } from './login/login.component';
 import { PasswordComponent } from './password/password.component';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { DialogAnimationsExampleComponent } from './dialog-animations-example/dialog-animations-example.component';
 
 const routes: Routes = [
  {path: "", redirectTo: "home", pathMatch: "full" },
@@ -33,10 +36,12 @@ const routes: Routes = [
     { path: 'listmodeles', component: ListModelesComponent  },
     { path: 'listeusers', component: ListeUsersComponent  },
     { path: 'updateUser/:id', component: UpdateUserComponent  },
-    {path: 'app-forbidden', component: ForbiddenComponent},
+     {path: 'app-forbidden', component: ForbiddenComponent},
     {path: 'formvalidation', component: ForbiddenComponent},
     { path: 'addUser', component: AddUserComponent  },
-    { path: 'xx', component: PasswordComponent  }
+    { path: 'drag-and-drop', component: DragAndDropComponent  },
+    { path: 'dialog', component: DialogAnimationsExampleComponent  }
+    
   ]
   },
 ];

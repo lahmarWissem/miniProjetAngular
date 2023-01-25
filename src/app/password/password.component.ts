@@ -45,6 +45,7 @@ export class PasswordComponent{
       },
       {
         validators: [Validation.match('password', 'confirmPassword')]
+
       }
     );
   }

@@ -1,0 +1,77 @@
+<div  class="example-container">
+    <h2 >For selling</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="voituresforselling"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+        <table  >
+          <tbody>
+            <tr class="example-box" *ngFor="let voiture of voituresforselling ;let i= index" cdkDrag >
+              
+           
+              <td >{{ voiture.idVoiture }}</td>
+              <td>{{ voiture.nomVoiture }}</td>
+              <td>{{ voiture.prixVoiture }}</td>
+              <td>{{ voiture.dateCreation | date: "dd/MM/yyyy" }}</td>
+              <td>{{voiture?.modele?.nomMod}}</td>
+              <!-- <td data-label="image"><img [src]="listImages[i]" alt="img" style="width: 120px; height:90px"></td> -->
+              <td *ngIf="authService.isAdmin()" data-label="Action">
+                <div  >
+                  <button  class="btn btn-sm me-2" [routerLink]="['/home/updatevoiture',voiture.idVoiture]"
+                    style="background-color: #005a81; color: #FFF;"><i class="fas fa-pen"></i></button>
+                  <button class="btn btn-sm me-2" (click)="supprimerVoiture(voiture)"
+                    style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-times fa-lg"></i></button>
+                </div>
+              </td>
+         
+            </tr>
+          </tbody>
+        </table> 
+    </div>
+  </div>
+  
+  <div class="example-container">
+    <h2 >Selled</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="voituressold"
+      [cdkDropListConnectedTo]="[todoList]"
+
+      class="example-list"
+      (cdkDropListDropped)="drop($event)" >
+      
+      <table  >
+        <tbody>
+          <tr class="example-box" *ngFor="let voiture of voituressold ;let i= index" cdkDrag >
+          
+            <td>{{ voiture.type }}</td>
+            <td>{{ voiture.idVoiture }}</td>
+           
+            <td>{{ voiture.nomVoiture }}</td>
+            <td>{{ voiture.prixVoiture }}</td>
+            <td>{{ voiture.dateCreation | date: "dd/MM/yyyy" }}</td>
+            <td>{{voiture?.modele?.nomMod}}</td>
+            <!-- <td data-label="image"><img [src]="listImages[i]" alt="img" style="width: 120px; height:90px"></td> -->
+            <td *ngIf="authService.isAdmin()" data-label="Action">
+              <div  >
+                <button  class="btn btn-sm me-2" [routerLink]="['/home/updatevoiture',voiture.idVoiture]"
+                  style="background-color: #005a81; color: #FFF;"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-sm me-2" (click)="supprimerVoiture(voiture)"
+                  style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-times fa-lg"></i></button>
+              </div>
+            </td>
+      
+          </tr>
+        </tbody>
+      </table> 
+     
+    </div>
+  </div>
+  
+  

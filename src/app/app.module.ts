@@ -23,6 +23,12 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { PasswordComponent } from './password/password.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DialogAnimationsExampleComponent } from './dialog-animations-example/dialog-animations-example.component';
+
+
 
 
 
@@ -47,16 +53,26 @@ import { PasswordComponent } from './password/password.component';
     ForbiddenComponent,
     UpdateUserComponent,
     PasswordComponent,
+    SpinnerComponent,
+    DragAndDropComponent,
+    DialogAnimationsExampleComponent,
 
   
   ],
+ 
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule,
+
+  
+   
+
+     
   ],
   providers: [{ provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptor,
